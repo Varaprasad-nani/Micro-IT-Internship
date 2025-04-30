@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(to bottom right, #cbd5e1, #e9d5ff);
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      animation: fadeScale 0.6s ease forwards;
+    }
+    header p {
+      color: #4b5563;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      border: 2px solid #4f46e5;
+      background: transparent;
+      color: #4f46e5;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    button:hover {
+      background: #4f46e5;
+      color: white;
+    }
+    .content {
+      max-width: 850px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      animation: slideIn 0.5s ease forwards;
+    }
+    .content h2 {
+      font-size: 1.75rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .content p {
+      margin-bottom: 10px;
+    }
+    .card {
+      padding: 20px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      transition: transform 0.3s;
+      background-color: #f9fafb;
+      margin-bottom: 20px;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    @keyframes fadeScale {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Portfolio</h1>
+    <p>Discover my work and skills</p>
+  </header>
+
+  <nav>
+    <button onclick="showSection('about')">About Me</button>
+    <button onclick="showSection('projects')">Projects</button>
+    <button onclick="showSection('workshops')">Workshops</button>
+    <button onclick="showSection('Internship')">Internship</button>
+    <button onclick="showSection('skills')">Skills</button>
+    <button onclick="showSection('passion')">Passion</button>
+    <button onclick="showSection('languages')">Languages</button>
+    <button onclick="showSection('contact')">Contact</button>
+  </nav>
+
+  <div id="section" class="content"></div>
+
+  <script>
+    const sections = {
+      about: `
+        <h2>About Me</h2>
+        <p>Hi, I'm [Varaprasad],I am an enthusiastic web developer with a solid foundation in HTML, CSS,
+            JavaScript, and Python. I excel in delivering high-quality, user-friendly
+            websites and applications, ensuring they are optimized for various devices.
+            My previous experience as a Customer Executive honed my problem-solving
+            skills and my ability to manage customer relations effectively. I am dedicated
+            to continuous learning and improvement.</p>
+      `,
+      projects: `
+        <h2>Projects</h2>
+        <div class="card">
+          <h3>SOCIAL MEDIA MARKETING</h3>
+          <p>AThe project explores strategies and tactics for
+                effectively promoting brands or products through
+                social media channels. It highlights the importance
+                of understanding target audiences, creating
+                engaging content, and using analytics to track
+                campaign success. Key areas covered include
+                platform selection (such as Instagram, Facebook,
+                LinkedIn, and Twitter), content creation, audience
+                engagement, influencer collaborations, and paid
+                advertising. The project emphasizes the role of
+                metrics like engagement rate, reach, impressions,
+                and conversions to measure the effectiveness of
+                social media campaigns. The goal is to build brand
+                awareness, drive website traffic, and increase
+                customer engagement and sales.
+                Increased Engagement: Your campaign led to a
+                measurable increase in likes, shares, and
+                comments on posts, showing that the content
+                resonated well with the audience.
+                Improved Brand Awareness: Through strategic
+                use of popular platforms, your project helped to
+                boost brand visibility, shown by increased
+                follower growth or higher impressions.
+                Audience Insights: The project gathered
+                valuable data on target audience behavior and
+                preferences, providing insights that could guide
+                future marketing strategies.</p>
+                        </div>
+                    `,
+      workshops: `
+        <h2>Workshops</h2>
+        <div class="card">
+          <h3>MENTORLY AIINNOVATORS HUB ON ARTIFICIAL INTELLIGENCE</h3>
+          <p>
+            → Attended a comprehensive workshop focused on the principles of artificial intelligence and its applications in web development.<br>
+            → Learned to design effective prompts for AI TOOLS to facilitate website creation and enhance user experience.<br>
+            → Gained practical skills in utilizing AI technologies to streamline development processes and improve functionality.
+          </p>
+        </div>
+      `,
+      Internship: `
+        <h2>Internship</h2>
+        <div class="card">
+          <h3>AI AND MACHINE LEARNING - IBM Skills Network</h3>
+          <p>
+            IBM Skill Build: Attained basic knowledge on artificial intelligence and project building experience.<br>
+            Collaborated on a project that involved sentiment analysis, developing a predictive model, and implementing a machine learning algorithm.
+          </p>
+        </div>
+      `,
+      skills: `
+        <h2>Skills</h2>
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>Responsive Web Design</li>
+          <li>AI Tools & Prompt Design</li>
+          <li>Python</li>
+          <li>Java(Basics)</li>
+          <li>C++(Basics)</li>
+          <li>C</li>
+        </ul>
+      `,
+      passion: `
+        <h1>Passion</h1>
+        <h3>Photography</h3>
+        <p>I am passionate about Enjoys capturing moments and enhancing images through photography and editing.</p>
+        <h3>Listening Music</h3>
+        <p>Avid listener of various music genres.</p>
+        <h3>Playing Games</h3>
+        <p>Enjoys engaging in competitive gaming and exploring new video games.</p>
+        `,
+      languages: `
+        <h2>Languages</h2>
+        <ul>
+          <li>English - Fluent</li>
+          <li>Telugu - Fluent</li>
+          <li>Hindi - Beginner</li>
+        </ul>
+      `,
+      contact: `
+        <h2>Contact</h2>
+        <p>Email: mareeduvaraprasad77@gmail.com</p>
+        <p>LinkedIn: https://www.linkedin.com/in/varaprasad-mareedu-396832246?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app </p>
+      `
+    };
+
+    function showSection(name) {
+      const section = document.getElementById('section');
+      section.innerHTML = sections[name];
+    }
+
+    window.onload = () => showSection('about');
+  </script>
+</body>
+</html>
